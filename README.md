@@ -3,14 +3,14 @@ Scripts and config files for setup of standard AWS account.
 
 ## 1. Setup you SAML Identity Prodiver Metadata
 
-Replace [templates/shibidp-md.xml] with your SAML Identity Provider Metadata. See http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html. Once you set this up, you will be able to reuse it for setting up multiple AWS accounts that are supposed to use the same identity provider.
+Replace [templates/shibidp-md.xml](templates/shibidp-md.xml) with your SAML Identity Provider Metadata. See http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html. Once you set this up, you will be able to reuse it for setting up multiple AWS accounts that are supposed to use the same identity provider.
 
 
 ## 2. onboard.yml
 
 Edit the following parameters in this YAML file - as needed - to reflect the account being configured:
 
-* **profile** - The pre-configured AWS CLI profile name with the Access Key / Secrete Key combo for the account to be onboarded
+* **profile** - The pre-configured AWS CLI profile name an AWS Access Key / Secrete Key combo for the account to be onboarded
 * **region** - The AWS region to use for single-region resources, e.g. VPC, ConfigService Rules, etc.
 * **account_moniker** - The client moniker (e.g., in the form school-department)
 * **account_number** - The 12 digit AWS account number
