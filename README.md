@@ -1,10 +1,9 @@
 # aws-account-setup
-Scripts and config files for setup of a standard AWS account. Implements auditing and configuration as described in [Standard AWS Account Configurations](https://confluence.cornell.edu/display/CLOUD/Standard+AWS+Account+Configurations).
+Scripts and config files for setup of a standard AWS account. Implements auditing and configuration as described in Cornell's [Standard AWS Account Configurations](https://confluence.cornell.edu/display/CLOUD/Standard+AWS+Account+Configurations).
 
 ## 1. Setup your SAML Identity Provider Metadata
 
 Replace [templates/shibidp-md.xml](templates/shibidp-md.xml) with your SAML Identity Provider Metadata. See http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html. Once you set this up, you will be able to reuse it for setting up multiple AWS accounts that are supposed to use the same identity provider.
-
 
 ## 2. onboard.yml
 
