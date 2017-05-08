@@ -1,0 +1,60 @@
+# Global
+profile:          'my_aws_cli_profile'
+region:           'us-east-1'
+account_moniker:  'my-moniker'
+account_number:   '01234567890123'
+
+# Shibboleth
+shib_saml_provider: 'my_idp'
+
+shib_role_name:     'shib-admin'
+shib_role_policy:   'arn:aws:iam::aws:policy/AdministratorAccess'
+
+cs_role_name:       'shib-readonly'
+cs_role_policy:     'arn:aws:iam::aws:policy/ReadOnlyAccess'
+
+iam_passwd_policy: {
+  allow_users_to_change_password: true,
+  hard_expiry:                    false,
+  max_password_age:               90,
+  minimum_password_length:        14,
+  password_reuse_prevention:      3,
+  require_numbers:                true,
+  require_symbols:                true,
+  require_lowercase_characters:   true,
+  require_uppercase_characters:   true
+}
+
+# ConfigService
+configservice_s3_bucket_name: 'config-bucket'
+configservice_sns_topic_name: 'config-topic'
+configservice_iam_role_name:  'config-role'
+
+# CloudTrail
+itso_cloudtrail_bucket: 'security-cloud-trail'
+
+# VPC Flow Logs
+flow_iam_role_name: 'flowlog-role'
+
+# VPC Config
+on_premise_cidr: '10.0.0.0/8'
+vpc_cidr:        '10.92.0.0/22'
+vpn_address:      NULL  # NULL for no VPN
+
+public_subnets:
+  - { cidr: '10.92.0.0/26', az: 'c' }
+  - { cidr: '10.92.1.0/26', az: 'd' }
+
+private_subnets:
+  - { cidr: '10.92.2.0/26', az: 'c' }
+  - { cidr: '10.92.3.0/26', az: 'd' }
+
+# Default Network ACL's
+nacls:
+  - { protocol: 6,  from: 22,   to: 22,    rule: 'allow', cidr: '0.0.0.0/0'         }
+  - { protocol: 6,  from: 80,   to: 80,    rule: 'allow', cidr: '0.0.0.0/0'         }
+  - { protocol: 6,  from: 443,  to: 443,   rule: 'allow', cidr: '0.0.0.0/0'         }
+  - { protocol: 6,  from: 1024, to: 65535, rule: 'allow', cidr: '0.0.0.0/0'         }
+  - { protocol: 17,  from: 123, to: 123,   rule: 'allow', cidr: '0.0.0.0/0'         }
+  - { protocol: -1, from: -1,   to: -1,    rule: 'allow', cidr: '10.0.0.0/8'        }
+

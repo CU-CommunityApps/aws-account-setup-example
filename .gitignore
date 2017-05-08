@@ -1,0 +1,3 @@
+cloudformation/*.json
+cloudformation/templates
+*.swp
